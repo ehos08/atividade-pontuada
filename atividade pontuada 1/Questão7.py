@@ -2,9 +2,10 @@ import os
 os.system ("clear")
 
 print ("""
-       arroz                  |       feijão
-R$ 1,80 por Kg (até 5kg)      |  R$ 2,50 por Kg (até 5Kg)                           
-R$ 1,50 por Kg (acima de 5Kg) |  R$ 2,20 por Kg (acima de 5Kg)          
+       arroz              |       feijão
+R$  por Kg (até 5kg)      |  R$  por Kg (até 5Kg)                           
+R$  por Kg (acima de 5Kg) |  R$  por Kg (acima de 5Kg) 
+R$                        |  R$   
 """)
 fruta = input("Informe o produto que você deseja: ").lower()
 
@@ -12,12 +13,12 @@ match fruta:
     case "arroz":
         quantidade = int(input("Digite a quantidade desejada (em Kg): "))
         precoA = 5.50 
-        resultadoA = quantidade * precoA
-        descontoA1 = resultadoA - (resultadoA * 0.02)
+        resultadoA = precoA * quantidade 
+        resultado_desconto = (resultadoA - (resultadoA * 0.02))
         if quantidade <= 5:
-         print (f"A quantidade de {quantidade}Kg de arroz custará R${resultadoA}, com R${descontoA1} de desconto.")
-         resultado_desconto = resultadoA - descontoA1
-         print(f"Totalizando R${resultado_desconto}.")
+         descontoA1 = resultadoA - resultado_desconto
+         print (f"A quantidade de {quantidade}Kg de arroz custará R${resultadoA}, com R${descontoA1:.2f} de desconto.")
+         print(f"Totalizando R${resultado_desconto:.2f}.")
         elif quantidade >5 or quantidade <= 10:
            descontoA2 = resultadoA - (resultadoA * 0.03)
            print(f"A quantidade de {quantidade}Kg de arroz custará R${descontoA2}.")
@@ -28,18 +29,22 @@ match fruta:
 
 
     case "feijão":
-        quantidade = int(input("Digite a quantidade desejada (em Kg):"))
+        quantidade = int(input("Digite a quantidade desejada (em Kg): "))
         precoA = 7.00 
-        resultadoF = quantidade * precoA
+        resultadoF = precoA * quantidade 
+        resultado_desconto = (resultadoF -(resultadoF * 0.02))
         if quantidade <= 5:
-         descontoF1 = resultadoF*0.02
-         print (f"A quantidade de {quantidade}Kg de feijão custará R${descontoF1}. ")
+         descontoF1 = resultadoF * 0.02
+         print (f"A quantidade de {quantidade}Kg de feijão custará R${resultadoF}, com desconto de R${descontoF1:.2f}. ")
+         print(f"Totalizando R${resultado_desconto:.2f}.")
         elif quantidade >5 or quantidade <= 10:
            descontoF2 = resultadoF*0.03
            print(f"A quantidade de {quantidade}Kg de feijão custará R${descontoF2}.")
+           print(f"Totalizando R${resultado_desconto:.2f}.")
         elif quantidade > 10:
            descontoF3 = resultadoF * 0.05
            print(f"A quantidade de {quantidade}Kg de feijão custará R${descontoF3}.")
+           print(f"Totalizando R${resultado_desconto:.2f}.")
            
     case _: 
          ("Opção inválida!")
