@@ -2,13 +2,10 @@ import os
 os.system ("clear")
 
 print ("""
-       arroz              |       feijão
-R$  por Kg (até 5kg)      |  R$  por Kg (até 5Kg)                           
-R$  por Kg (acima de 5Kg) |  R$  por Kg (acima de 5Kg) 
-R$                        |  R$   
+       arroz         |       feijão
+ R$ 5.50 por Kg      |  R$ 7.00 por Kg                           
 """)
 fruta = input("Informe o produto que você deseja: ").lower()
-
 match fruta:
     case "arroz":
         quantidade = int(input("Digite a quantidade desejada (em Kg): "))
@@ -25,9 +22,6 @@ match fruta:
         elif quantidade > 10:
            descontoA3 = resultadoA (resultadoA * 0.05)
            print(f"A quantidade de {quantidade}Kg de arroz custará R${descontoA3}.")
-
-
-
     case "feijão":
         quantidade = int(input("Digite a quantidade desejada (em Kg): "))
         precoA = 7.00 
@@ -44,7 +38,6 @@ match fruta:
         elif quantidade > 10:
            descontoF3 = resultadoF * 0.05
            print(f"A quantidade de {quantidade}Kg de feijão custará R${descontoF3}.")
-           print(f"Totalizando R${resultado_desconto:.2f}.")
-           
+           print(f"Totalizando R${resultado_desconto:.2f}.") 
     case _: 
          ("Opção inválida!")
